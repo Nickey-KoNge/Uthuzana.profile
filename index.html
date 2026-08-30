@@ -3,521 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>လင်းလွန်းပင်ကျောင်းဆရာတော် (ဘုန်းထားဝယ်) ဘဒ္ဒန္တသုဇန ၏ ထေရုပ္ပတ္တိအကျဉ်း</title>
+    <title>လင်းလွန်းပင်ကျောင်းဆရာတော် ဘဒ္ဒန္တသုဇန၏ ထေရုပ္ပတ္တိအကျဉ်း</title>
     
-    <!-- Google Fonts for Myanmar Text & Decorative Elements -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Padauk) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Noto+Sans+Myanmar:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        saffron: {
-                            DEFAULT: '#8B0000',
-                            dark: '#580000',
-                            light: '#B22222',
-                            gold: '#DAA520'
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
                         },
-                        maroon: '#4A0E17',
-                        monkBlue: '#0F2C59',
-                        deepNavy: '#071326',
-                        goldAccent: '#F39C12',
-                        goldLight: '#F1C40F'
+                        saffron: {
+                            500: '#ea580c',
+                            600: '#c2410c',
+                        },
+                        maroon: {
+                            700: '#581c87',
+                            800: '#450a0a',
+                            900: '#2d0606',
+                        },
+                        brown: {
+                            800: '#3f2314',
+                            900: '#231209',
+                        }
                     },
                     fontFamily: {
-                        padauk: ['Padauk', 'sans-serif'],
-                        noto: ['Noto Sans Myanmar', 'sans-serif']
+                        burmese: ['Padauk', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <style>
         body {
-            font-family: 'Padauk', 'Noto Sans Myanmar', sans-serif;
-            background: linear-gradient(135deg, #071326 0%, #0F2C59 40%, #3B000B 75%, #1A0005 100%);
+            font-family: 'Padauk', sans-serif;
+            background: linear-gradient(135deg, #231209 0%, #450a0a 50%, #2d0606 100%);
+            color: #f8fafc;
             background-attachment: fixed;
-            color: #F3F4F6;
         }
-
-        /* Burmese Kanote & Motif Custom Styling */
-        .kanote-border {
-            border: 2px solid #DAA520;
+        .kanote-card {
+            background: rgba(45, 6, 6, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 158, 11, 0.3);
             position: relative;
         }
-
-        .kanote-border::before, .kanote-border::after {
-            content: "❖";
+        /* Jasmine / Kanote Pattern Elements */
+        .kanote-card::before {
+            content: "❀";
             position: absolute;
-            color: #DAA520;
-            font-size: 1.2rem;
-            line-height: 1;
+            top: 6px;
+            left: 10px;
+            color: #f59e0b;
+            font-size: 14px;
+            opacity: 0.6;
         }
-        .kanote-border::before { top: -10px; left: -10px; }
-        .kanote-border::after { bottom: -10px; right: -10px; }
-
-        .kanote-card {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(218, 165, 32, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(218, 165, 32, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .kanote-card:hover {
-            border-color: rgba(218, 165, 32, 0.7);
-            box-shadow: 0 15px 35px rgba(218, 165, 32, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFF0B2 0%, #DAA520 50%, #F39C12 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .gold-gradient-bg {
-            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
-        }
-
-        /* Custom Scrollbar Styling */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #071326;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #DAA520;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #B8860B;
-        }
-
-        .section-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 2.5rem 0;
-        }
-        .section-divider::before, .section-divider::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid rgba(218, 165, 32, 0.3);
-            max-width: 200px;
-        }
-        .section-divider-icon {
-            padding: 0 15px;
-            color: #DAA520;
-            font-size: 1.5rem;
+        .kanote-card::after {
+            content: "❀";
+            position: absolute;
+            bottom: 6px;
+            right: 10px;
+            color: #f59e0b;
+            font-size: 14px;
+            opacity: 0.6;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-goldAccent selection:text-black">
+<body class="bg-brown-900 text-slate-100 font-burmese leading-relaxed">
 
     <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-amber-500/30 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo / Title -->
-                <a href="#hero" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-full border border-amber-400/60 flex items-center justify-center bg-amber-950/40 text-amber-400 group-hover:scale-105 transition-transform">
-                        <i class="fa-solid font-bold text-lg">ဓ</i>
-                    </div>
-                    <span class="text-lg sm:text-xl font-bold gold-gradient-text tracking-wide">ဘုန်းထားဝယ်</span>
-                </a>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm lg:text-base">
-                    <a href="#hero" class="px-3 py-2 rounded-lg text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 transition">ပင်မစာမျက်နှာ</a>
-                    <a href="#birth" class="px-3 py-2 rounded-lg text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 transition">ဖွားမြင်တော်မူခြင်း</a>
-                    <a href="#ordination" class="px-3 py-2 rounded-lg text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 transition">သာမဏေနှင့်ရဟန်း</a>
-                    <a href="#education" class="px-3 py-2 rounded-lg text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 transition">စာပေသင်ကြားခြင်း</a>
-                    <a href="#degrees" class="px-3 py-2 rounded-lg text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 transition">ဘွဲ့တံဆိပ်တော်များ</a>
-                    <a href="#activities" class="px-3 py-2 rounded-lg text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 transition">သာသနာပြုလုပ်ငန်းများ</a>
-                    <a href="#contact" class="px-4 py-2 rounded-full gold-gradient-bg text-slate-950 font-bold hover:brightness-110 transition shadow-lg shadow-amber-500/20">ဆက်သွယ်လှူဒါန်းရန်</a>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-maroon-900/90 backdrop-blur-md border-b border-gold-500/30 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <span class="text-gold-500 text-xl">❀</span>
+                    <span class="font-bold text-lg text-gold-400">ဘဒ္ဒန္တသုဇန</span>
                 </div>
-
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 text-sm font-semibold">
+                    <a href="#about" class="hover:text-gold-400 transition-colors">ထေရုပ္ပတ္တိ</a>
+                    <a href="#samanera" class="hover:text-gold-400 transition-colors">ရှင်သာမဏေ</a>
+                    <a href="#monk" class="hover:text-gold-400 transition-colors">ရဟန်းအဖြစ်</a>
+                    <a href="#education" class="hover:text-gold-400 transition-colors">စာပေသင်ကြားမှု</a>
+                    <a href="#degrees" class="hover:text-gold-400 transition-colors">အောင်မြင်ခဲ့သောပညာများ</a>
+                    <a href="#duties" class="hover:text-gold-400 transition-colors">သာသနာပြုလုပ်ငန်းများ</a>
+                    <a href="#contact" class="hover:text-gold-400 transition-colors">ဆက်သွယ်ရန်</a>
+                </div>
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" type="button" class="text-amber-400 hover:text-amber-300 p-2 rounded-md focus:outline-none" aria-label="Toggle Menu">
-                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    <button id="mobile-menu-btn" class="text-gold-500 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
             </div>
         </div>
-
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 border-b border-amber-500/30 px-4 pt-2 pb-6 space-y-2 text-base">
-            <a href="#hero" class="mobile-link block px-3 py-2 rounded-md text-gray-200 hover:bg-amber-500/20 hover:text-amber-300">ပင်မစာမျက်နှာ</a>
-            <a href="#birth" class="mobile-link block px-3 py-2 rounded-md text-gray-200 hover:bg-amber-500/20 hover:text-amber-300">ဖွားမြင်တော်မူခြင်း</a>
-            <a href="#ordination" class="mobile-link block px-3 py-2 rounded-md text-gray-200 hover:bg-amber-500/20 hover:text-amber-300">သာမဏေနှင့်ရဟန်း</a>
-            <a href="#education" class="mobile-link block px-3 py-2 rounded-md text-gray-200 hover:bg-amber-500/20 hover:text-amber-300">စာပေသင်ကြားခြင်း</a>
-            <a href="#degrees" class="mobile-link block px-3 py-2 rounded-md text-gray-200 hover:bg-amber-500/20 hover:text-amber-300">ဘွဲ့တံဆိပ်တော်များ</a>
-            <a href="#activities" class="mobile-link block px-3 py-2 rounded-md text-gray-200 hover:bg-amber-500/20 hover:text-amber-300">သာသနာပြုလုပ်ငန်းများ</a>
-            <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-slate-950 font-bold gold-gradient-bg text-center mt-4">ဆက်သွယ်လှူဒါန်းရန်</a>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-maroon-900 border-b border-gold-500/30 px-4 pt-2 pb-4 space-y-2 text-sm">
+            <a href="#about" class="block hover:text-gold-400">ထေရုပ္ပတ္တိ</a>
+            <a href="#samanera" class="block hover:text-gold-400">ရှင်သာမဏေ</a>
+            <a href="#monk" class="block hover:text-gold-400">ရဟန်းအဖြစ်</a>
+            <a href="#education" class="block hover:text-gold-400">စာပေသင်ကြားမှု</a>
+            <a href="#degrees" class="block hover:text-gold-400">အောင်မြင်ခဲ့သောပညာများ</a>
+            <a href="#duties" class="block hover:text-gold-400">သာသနာပြုလုပ်ငန်းများ</a>
+            <a href="#contact" class="block hover:text-gold-400">ဆက်သွယ်ရန်</a>
         </div>
     </nav>
 
-    <!-- Main Container -->
-    <main class="pt-24 lg:pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-20">
-
-        <!-- Hero Section -->
-        <section id="hero" class="relative py-12 md:py-16 text-center" data-aos="fade-up" data-aos-duration="1000">
-            <!-- Decorative Lotus Flower Icon -->
-            <div class="flex justify-center mb-4">
-                <span class="text-amber-400 text-3xl sm:text-4xl">🪷</span>
+    <!-- Header / Profile Section -->
+    <header id="about" class="pt-28 pb-12 px-4">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-down" data-aos-duration="1000">
+            
+            <!-- Photo Frame with Gold Border & Jasmine Accents -->
+            <div class="relative inline-block mb-6">
+                <div class="absolute -inset-2 bg-gradient-to-r from-gold-500 via-saffron-500 to-gold-400 rounded-full blur opacity-75 animate-pulse"></div>
+                <!-- Updated Photo Path -->
+                <img src="sujanaphoto.jpg" alt="ဆရာတော် ဘဒ္ဒန္တသုဇန" class="relative rounded-full w-48 h-48 sm:w-60 sm:h-60 object-cover border-4 border-gold-400 shadow-2xl mx-auto">
+                <div class="absolute -bottom-1 -right-1 bg-gold-500 text-maroon-900 p-2 rounded-full font-bold shadow-md">
+                    ❀
+                </div>
             </div>
-
-            <h2 class="text-lg sm:text-xl text-amber-300 tracking-widest font-semibold mb-2">လင်းလွန်းပင်ကျောင်းဆရာတော်</h2>
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold gold-gradient-text mb-4 leading-tight">
-                (ဘုန်းထားဝယ်) ဘဒ္ဒန္တသုဇန
-            </h1>
-            <p class="text-lg sm:text-2xl text-amber-100/90 font-medium mb-8 max-w-3xl mx-auto">
-                ၏ ထေရုပ္ပတ္တိအကျဉ်း
+            
+            <h1 class="text-2xl sm:text-4xl font-bold text-gold-400 mb-2">လင်းလွန်းပင်ကျောင်းဆရာတော် (ဘုန်းထားဝယ်)</h1>
+            <h2 class="text-xl sm:text-2xl font-semibold text-slate-200 mb-4">ဘဒ္ဒန္တသုဇန</h2>
+            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
+                ထေရုပ္ပတ္တိအကျဉ်း
             </p>
-
-            <!-- Sayadaw Photo Display -->
-            <div class="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto mb-8 group" data-aos="zoom-in" data-aos-delay="200">
-                <!-- Kanote Decorative Outer Ring -->
-                <div class="absolute -inset-3 rounded-full bg-gradient-to-r from-amber-500 via-rose-900 to-amber-600 opacity-75 blur-sm group-hover:opacity-100 transition duration-500 animate-pulse"></div>
-                <div class="relative w-full h-full rounded-full p-2 bg-slate-900 border-2 border-amber-400/80 shadow-2xl overflow-hidden flex items-center justify-center">
-                    <img src="sujana photo.jpg" alt="ဆရာတော် ဘဒ္ဒန္တသုဇန (ဘုန်းထားဝယ်)" class="w-full h-full object-cover rounded-full transform group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=600&auto=format&fit=crop';">
-                </div>
-                <!-- Decorative Badge Below Photo -->
-                <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 px-6 py-1.5 rounded-full gold-gradient-bg text-slate-950 text-xs sm:text-sm font-bold shadow-lg border border-amber-200">
-                    သာသနဓဇ &bull; အဘိဓမ္မဓရ
-                </div>
+            
+            <!-- Jasmine / Kanote Ornamental Divider -->
+            <div class="flex justify-center items-center my-6 space-x-3 text-gold-400">
+                <span class="h-0.5 w-16 bg-gradient-to-r from-transparent to-gold-500"></span>
+                <span>❀ ✿ ❀</span>
+                <span class="h-0.5 w-16 bg-gradient-to-l from-transparent to-gold-500"></span>
             </div>
-
-            <div class="max-w-2xl mx-auto text-gray-300 text-sm sm:text-base leading-relaxed bg-slate-900/40 p-6 rounded-2xl border border-amber-500/20 backdrop-blur-sm">
-                တနင်္သာရီတိုင်းဒေသကြီး၊ ထားဝယ်မြို့နယ်၊ လင်းလွန်းပင်တောရကျောင်း၌ သီတင်းသုံးတော်မူ၍ ပရိယတ္တိစာပေများ သင်ကြားပို့ချပေးလျက်ရှိသော ကျေးဇူးတော်ရှင် ဆရာတော်၏ သာသနာပြု ထေရုပ္ပတ္တိအကျဉ်း။
-            </div>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="section-divider">
-            <span class="section-divider-icon">❖</span>
         </div>
+    </header>
 
-        <!-- 1. Birth Section -->
-        <section id="birth" class="scroll-mt-28" data-aos="fade-up">
-            <div class="kanote-card rounded-2xl p-6 sm:p-10 relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-amber-400/60 rounded-tl-2xl"></div>
-                <div class="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-amber-400/60 rounded-br-2xl"></div>
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 pb-20 space-y-10">
 
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 text-2xl">
-                        <i class="fa-solid fa-cake-candles"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl sm:text-3xl font-bold gold-gradient-text">ဖွားမြင်တော်မူခြင်း</h3>
-                        <p class="text-xs sm:text-sm text-amber-200/70">ဆရာတော်၏ ငယ်ဘဝ ဖြစ်စဉ်</p>
-                    </div>
+        <!-- ဖွားမြင်တော်မူခြင်း -->
+        <section class="kanote-card rounded-2xl p-6 sm:p-8 shadow-xl" data-aos="fade-up">
+            <h3 class="text-xl font-bold text-gold-400 mb-4 flex items-center border-b border-gold-500/20 pb-2">
+                <span class="mr-2 text-gold-500">❀</span>
+                ဖွားမြင်တော်မူခြင်း
+            </h3>
+            <p class="text-slate-200 leading-relaxed">
+                ဆရာတော် အလောင်းလျာကို တနင်္သာရီတိုင်းဒေသကြီး၊ သရက်ချောင်းမြို့နယ် မဲနယ်အိုးရွာနေ ခမည်းတော်ကြီး (ဦးဝင်းမြင့်) + မယ်တော်ကြီး ဒေါ်သန်းအေးတို့မှ ၁၃၄၇-ခုနှစ်၊ တပိုးတွဲလဆန်း (၁၂)ရက်၊ သောကြာနေ့ (၂၁.၂.၁၉၈၆) သောကြာနေ့တွင် မီးရှူးသန့်စင် ဖွားမြင်တော်မူခဲ့ပါသည်။ သားသမီး (၃) ယောက်တွင် အကြီးဆုံးသား ဖြစ်သည်။
+            </p>
+        </section>
+
+        <!-- ရှင်သာမဏေအဖြစ်သို့ရောက်တော်မူခြင်း -->
+        <section id="samanera" class="kanote-card rounded-2xl p-6 sm:p-8 shadow-xl" data-aos="fade-up">
+            <h3 class="text-xl font-bold text-gold-400 mb-4 flex items-center border-b border-gold-500/20 pb-2">
+                <span class="mr-2 text-gold-500">❀</span>
+                ရှင်သာမဏေအဖြစ်သို့ရောက်တော်မူခြင်း
+            </h3>
+            <p class="text-slate-200 leading-relaxed">
+                ဆရာတော်အလောင်းလျာသည် တနင်္သာရီတိုင်းဒေသကြီး၊ သရက်ချောင်းမြို့နယ် မဲနယ်အိုး ကျေးရွာ - နေ မယ်တော်ကြီး ဒေါ်သန်းအေး မိသားစိုတို့၏ ပစ္စယာနုဂ္ဂဟကိုခံယူကာ ကျေးဇူးတော်ရှင် (ခမည်းတော်) ဆရာတော်ဘုရားကြီး ဦးနန္ဒမာလာကို ဥပဇ္ဈာယ်ပြုလျှက် ၁၃၅၈-ခု၊ ကဆုန်လဆန်း (၂) ရက်နေ့တွင် ရှင်သာမဏေအဖြစ်သို့ ရောက် ရှိတော်မူခဲ့ပါသည်။
+            </p>
+        </section>
+
+        <!-- ရဟန်းအဖြစ်သို့ရောက်ရှိတော်မူခြင်း -->
+        <section id="monk" class="kanote-card rounded-2xl p-6 sm:p-8 shadow-xl" data-aos="fade-up">
+            <h3 class="text-xl font-bold text-gold-400 mb-4 flex items-center border-b border-gold-500/20 pb-2">
+                <span class="mr-2 text-gold-500">❀</span>
+                ရဟန်းအဖြစ်သို့ရောက်ရှိတော်မူခြင်း
+            </h3>
+            <p class="text-slate-200 leading-relaxed">
+                ဆရာတော်လောင်းလျာသည် သာသနာသက္ကရာဇ် (၂၅၅၀)ခု ၊ ကောဇာသက္ကရာဇ် ၁၃၆၈ ခုနှစ်၊ နွေဥတု၊ ကဆုန်လဆုတ် (၉) ရက်၊ စနေနေ့တွင် တနင်္သာရီတိုင်းဒေသကြီး၊ ထားဝယ်မြို့နယ်၊ ကူးတို့ရွာ၊ လင်းလွန်းပင်တောရကျောင်း၏ ဦးစီးပဓာန နာယက (ခမည်းတော်) ဆရာတော်ဘုရားကြီးအား ဥပဇ္ဈာယ်ပြုကာ မယ်တော်ကြီး ဒေါ်သန်းအေး မိသားစု၏ ပစ္စယာနုဂ္ဂဟကိုခံယူ၍ ကူးတို့ရွာ၊ အရိုးတောင်ကျောင်း ခဏ္ဍသိမ်တော်၌ မြင့်မြတ်သော ရဟန်းအဖြစ်သို့ ရောက်ရှိတော် မူခဲ့ပါသည်။
+            </p>
+        </section>
+
+        <!-- ပရိယတ္တိစာပေသင်ကြားလေ့လာတော်မူခြင်း -->
+        <section id="education" class="kanote-card rounded-2xl p-6 sm:p-8 shadow-xl" data-aos="fade-up">
+            <h3 class="text-xl font-bold text-gold-400 mb-6 flex items-center border-b border-gold-500/20 pb-2">
+                <i data-lucide="book-open" class="mr-3 w-6 h-6 text-gold-500"></i>
+                ပရိယတ္တိစာပေသင်ကြားလေ့လာတော်မူခြင်း
+            </h3>
+            <p class="mb-4 font-semibold text-slate-300">ဆရာတော်သည် အောက်ပါ စာသင်တိုက်များ၌ စာပေများ သင်ကြားခဲ့ပါသည် -</p>
+            <ul class="space-y-4 text-slate-200">
+                <li class="flex items-start">
+                    <span class="text-gold-500 mr-2 mt-1">❀</span>
+                    <span>တနင်္သာရီတိုင်းဒေသကြီး၊ ထားဝယ်မြို့နယ်၊ ကူးတို့ရွာ၊ လင်းလွန်းပင်ကျောင်းဆရာတော် ဦးနန္ဒမာလာ။</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-gold-500 mr-2 mt-1">❀</span>
+                    <span>ထားဝယ်မြို့၊ ဇေယျဝတီစာသင်တိုက်ဆရာတော် ဘဒ္ဒန္တအရိန္ဒမ (အဘိဓဇအဂ္ဂမဟာသဒ္ဓမ္မ ဇောတိက၊ အဂ္ဂမဟာကမ္မဋ္ဌာနာစရိယ)၊ တိုက်အုပ်ဆရာတော် ဘဒ္ဒန္တစန္ဒာဝံသ (အဘိဓဇမဟာရဋ္ဌ ဂုရု၊ အဂ္ဂမဟာပဏ္ဍိတ)၊ တိုက်ကျပ်ဆရာတော် ဘဒ္ဒန္တသူရိယ (အဘိဓဇမဟာရဋ္ဌဂုရု၊ အဂ္ဂမဟာပဏ္ဍိတ)၊ စာချနာယကဆရာတော် ဘဒ္ဒန္တနန္ဒဝံသ (အဂ္ဂမဟာပဏ္ဍိတ၊ အဂ္ဂမဟာဂန္ထဝါစကပဏ္ဍိတ)၊ စာချ နာယကဆရာတော် ဘဒ္ဒန္တကောသလ္လ (အဂ္ဂမဟာပဏ္ဍိတ၊ အဂ္ဂမဟာဂန္ထဝါစကပဏ္ဍိတ)၊ စာချနာယ ကဆရာတော် ဘဒ္ဒန္တပညာဗလ (အဂ္ဂမဟာဂန္ထဝါစကပဏ္ဍိတ)၊ စာချနာယက ဘဒ္ဒန္တဉာဏိဿရ (မဟာ ဂန္ထဝါစကပဏ္ဍိတ)နှင့် စာချဆရာတော်များ၊</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-gold-500 mr-2 mt-1">❀</span>
+                    <span>မော်လမြိုင်မြို့၊ ဒိုင်းဝန်ကွင်း၊ ရှမ်းစုရပ်၊ ဆင်ဖြူစာသင်တိုက်ဆရာတော် (အဂ္ဂမဟာပဏ္ဍိတ၊ ဒွိပိဋကဓရ) နှင့် စာချဆရာတော်များ။</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-gold-500 mr-2 mt-1">❀</span>
+                    <span>ထားဝယ်မြို့၊ မြို့မယဉ်ငေးသာသနာ့ရိပ်သာ ထားဝယ်ဗုဒ္ဓတက္ကသိုလ် ပါမောက္ခချုပ်ဆရာတော်၊ မော်ကွန်းထိန်းဆရာတော်နှင့် ကထိကဆရာတော်များ။</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-gold-500 mr-2 mt-1">❀</span>
+                    <span>အဘိဓမ္မတက္ကသိုလ် (ရန်ကုန်) ပါမောက္ခချုပ်ဆရာတော်ဘုရားကြီး၊ ဒုပါချုပ်ဆရာတော်၊ ပဋ္ဌာန်းအလင်းရောင်ဆရာတော်၊ မော်ကွန်းထိန်း၊ ကထိကဆရာတော်များနှင့် ကထိကဆရာ ဆရာမများ။</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-gold-500 mr-2 mt-1">❀</span>
+                    <span>သီရိလင်္ကာနိုင်ငံ၊ ကိုလံဘိုမြို့၊ ကေလနိယတက္ကသိုလ် ဒါရိုက်တာကြီးနှင့် ဆရာများ၊ မကုဋာ ရာမမြန်မာကျောင်း စီနီယာဆရာတော်များအထံ၌ ပရိယတ္တိစာပေများကို လေ့လာဆည်းပူး သင်ကြားခဲ့ပါသည် ။</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- အောင်မြင်ခဲ့သော စာမေးပွဲများ -->
+        <section id="degrees" class="kanote-card rounded-2xl p-6 sm:p-8 shadow-xl" data-aos="fade-up">
+            <h3 class="text-xl font-bold text-gold-400 mb-6 flex items-center border-b border-gold-500/20 pb-2">
+                <i data-lucide="award" class="mr-3 w-6 h-6 text-gold-500"></i>
+                အောင်မြင်ခဲ့သော စာမေးပွဲများ
+            </h3>
+            <div class="space-y-4">
+                <div class="p-4 rounded-lg bg-brown-900/60 border border-gold-500/20">
+                    <span class="text-gold-400 font-bold block mb-1">၁၃၇၃-ခုနှစ်</span>
+                    <p class="text-slate-200">အစိုးရပထမပြန်စာမေးပွဲ ပထမအငယ်တန်းကို တနင်္သာရီတိုင်း တတိယဂုဏ်ထူးဖြင့် ၎င်း၊ ထားဝယ်မြို့၊ ပရိယတ္တိသာသနာနုဂ္ဂဟအသင်း ပထမအငယ်တန်းကို ဒုတိယဂုဏ်ထူးဖြင့်၎င်း၊</p>
                 </div>
-
-                <div class="text-gray-200 text-base sm:text-lg leading-relaxed space-y-4 border-l-2 border-amber-500/30 pl-4 sm:pl-6 ml-2">
-                    <p>
-                        ဆရာတော် အလောင်းလျာကို တနင်္သာရီတိုင်းဒေသကြီး၊ သရက်ချောင်းမြို့နယ် မဲနယ်အိုးရွာနေ ခမည်းတော်ကြီး <span class="text-amber-300 font-semibold">(ဦးဝင်းမြင့်)</span> + မယ်တော်ကြီး <span class="text-amber-300 font-semibold">ဒေါ်သန်းအေး</span> တို့မှ
-                    </p>
-                    <div class="inline-block bg-amber-950/60 border border-amber-500/40 px-4 py-2 rounded-lg text-amber-200 font-medium my-2">
-                        📅 ၁၃၄၇-ခုနှစ်၊ တပိုးတွဲလဆန်း (၁၂)ရက်၊ သောကြာနေ့ (၂၁.၂.၁၉၈၆)
-                    </div>
-                    <p>
-                        တွင် မီးရှူးသန့်စင် ဖွားမြင်တော်မူခဲ့ပါသည်။
-                    </p>
+                <div class="p-4 rounded-lg bg-brown-900/60 border border-gold-500/20">
+                    <span class="text-gold-400 font-bold block mb-1">၁၃၇၄-ခုနှစ်</span>
+                    <p class="text-slate-200">အစိုးရပထမလတ်အတန်းကို တနင်္သာရီတိုင်း ပထမဂုဏ်ထူးဖြင့်၎င်း၊ ထားဝယ်မြို့၊ ပရိယတ္တိသာသနာနုဂ္ဂဟအသင်း ပထမအလတ်တန်းကို ပထမဂုဏ်ထူးဖြင့်၎င်း၊</p>
+                </div>
+                <div class="p-4 rounded-lg bg-brown-900/60 border border-gold-500/20">
+                    <span class="text-gold-400 font-bold block mb-1">၁၃၇၅-ခုနှစ်</span>
+                    <p class="text-slate-200">မွန်ပြည်နယ်၊ မော်လမြိုင်မြို့၊ ဆင်ဖြူစာသင်တိုက် သာသနမူလပထမအကြီးတန်းကို ၎င်း၊</p>
+                </div>
+                <div class="p-4 rounded-lg bg-brown-900/60 border border-gold-500/20">
+                    <span class="text-gold-400 font-bold block mb-1">၁၃၇၆-ခုနှစ်</span>
+                    <p class="text-slate-200">မော်လမြိုင်မြို့၊ သုဓမ္မာဂိုဏ်လုံးဆိုင်ရာ ဝိနယာနုဂ္ဂဟစာမေးပွဲတွင် မဇ္ဈိမဝေနယိက တန်းကို ဂုဏ်ထူးဖြင့်၎င်း အောင်မြင်ခဲ့လေသည်။</p>
+                </div>
+                <div class="p-4 rounded-lg bg-brown-900/60 border border-gold-500/20">
+                    <span class="text-gold-400 font-bold block mb-1">၂၀၂၀ ခုနှစ်</span>
+                    <p class="text-slate-200">(University of Abhidhamma) အဘိဓမ္မတက္ကသိုလ်မှ အဘိဓမ္မဓရဘွဲ့ကို၎င်း၊</p>
+                </div>
+                <div class="p-4 rounded-lg bg-brown-900/60 border border-gold-500/20">
+                    <span class="text-gold-400 font-bold block mb-1">၂၀၂၄ ခုနှစ်</span>
+                    <p class="text-slate-200">(University of Abhidhamma) အဘိဓမ္မတက္ကသိုလ်မှ အဘိဓမ္မဆေက-B.Aဘွဲ့ကို၎င်း၊</p>
+                </div>
+                <div class="p-4 rounded-lg bg-brown-900/60 border border-gold-500/20">
+                    <span class="text-gold-400 font-bold block mb-1">၂၀၂၄ ခုနှစ်</span>
+                    <p class="text-slate-200">ထားဝယ်ဗုဒ္ဓတက္ကသိုလ်မှ B.A(Buddhism) ဘွဲ့ကို၎င်း၊</p>
+                </div>
+                <div class="p-4 rounded-lg bg-brown-900/60 border border-gold-500/20">
+                    <span class="text-gold-400 font-bold block mb-1">၂၀၂၄ ခုနှစ်</span>
+                    <p class="text-slate-200">သီရိလင်္ကာနိုင်ငံ၊ ကိုလံဘိုမြို့၊ ကေလနိယတက္ကသိုလ်မှ (A Buddhist Psychological Aspect of Development of Happiness (Sukha) in Daily Life as Reflected in Pali Literature) "ပါဠိစာပေတွင် ဖော်ပြထားသည့် နေ့စဉ်ဘဝ၌ ပျော်ရွှင်မှု(သုခ)၏ အရေးပါ တိုးတက်မှုကို ဗုဒ္ဓဘာသာ စိတ် ဝိုင်းဆိုင်ရာရှုထောင့်မှ လေ့လာခြင်း" ဟူသော ကျမ်းဖြင့် MA ဘွဲ့ကို ရရှိခဲ့ပါသည်။</p>
                 </div>
             </div>
         </section>
 
-        <!-- 2. Ordination Section (Samanera & Bhikkhu) -->
-        <section id="ordination" class="scroll-mt-28 space-y-8" data-aos="fade-up">
-            <div class="text-center mb-8">
-                <h3 class="text-2xl sm:text-4xl font-bold gold-gradient-text">သာသနာ့ဘောင်သို့ ဝင်ရောက်တော်မူခြင်း</h3>
-                <p class="text-amber-200/70 text-sm mt-1">ရှင်သာမဏေနှင့် ရဟန်းအဖြစ်သို့ ရောက်ရှိတော်မူခဲ့ပုံများ</p>
+        <!-- သာသနာရေးနှင့် လူမှုရေးလုပ်ငန်းများ -->
+        <section id="duties" class="kanote-card rounded-2xl p-6 sm:p-8 shadow-xl" data-aos="fade-up">
+            <h3 class="text-xl font-bold text-gold-400 mb-6 flex items-center border-b border-gold-500/20 pb-2">
+                <span class="mr-2 text-gold-500">❀</span>
+                ဆောင်ရွက်ခဲ့သော သာသနာရေးနှင့် လူမှုရေးလုပ်ငန်းများ
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="p-3 bg-maroon-900/50 rounded-lg border border-gold-500/20 flex items-center">
+                    <span class="text-gold-500 mr-2">✿</span>
+                    <span>ပရိယတ္တိစာပေများ, တက္ကသိုလ်ပညာများ သင်ကြားပို့ချခြင်း</span>
+                </div>
+                <div class="p-3 bg-maroon-900/50 rounded-lg border border-gold-500/20 flex items-center">
+                    <span class="text-gold-500 mr-2">✿</span>
+                    <span>မိုးကုတ်တရားတော်များ ဟောကြားပြသခြင်း</span>
+                </div>
+                <div class="p-3 bg-maroon-900/50 rounded-lg border border-gold-500/20 flex items-center">
+                    <span class="text-gold-500 mr-2">✿</span>
+                    <span>နေ့, ညတရားပွဲများ ဟောဖော်ညွှန်ပြ သွန်သင်ဆုံးမခြင်း</span>
+                </div>
+                <div class="p-3 bg-maroon-900/50 rounded-lg border border-gold-500/20 flex items-center">
+                    <span class="text-gold-500 mr-2">✿</span>
+                    <span>ဓမ္မစကူးလ်, ယဉ်ကျေးလိမ္မာ သင်တန်းများ သင်ကြား ပို့ချခြင်း</span>
+                </div>
+                <div class="p-3 bg-maroon-900/50 rounded-lg border border-gold-500/20 flex items-center">
+                    <span class="text-gold-500 mr-2">✿</span>
+                    <span>စေတီ၊ ရုပ်ပွားတော်များ အသစ်တည်ထားကိုးကွယ်ခြင်း၊ ပြုပြင်မွမ်းမံ ထိန်းသိမ်းခြင်း</span>
+                </div>
+                <div class="p-3 bg-maroon-900/50 rounded-lg border border-gold-500/20 flex items-center">
+                    <span class="text-gold-500 mr-2">✿</span>
+                    <span>ကျောင်းဆောင် အသစ်တည်ဆောက်ခြင်း၊ အဟောင်းပြုပြင်ခြင်း</span>
+                </div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                <!-- Samanera Card -->
-                <div class="kanote-card rounded-2xl p-6 sm:p-8 relative flex flex-col justify-between" data-aos="fade-right" data-aos-delay="100">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="p-3 bg-red-950/60 border border-amber-500/30 rounded-xl text-amber-400 text-xl">
-                                <i class="fa-solid fa-hands-praying"></i>
-                            </span>
-                            <h4 class="text-xl sm:text-2xl font-bold text-amber-300">ရှင်သာမဏေအဖြစ်သို့ ရောက်ရှိခြင်း</h4>
-                        </div>
-                        <p class="text-gray-200 text-sm sm:text-base leading-relaxed mb-4">
-                            ဆရာတော်အလောင်းလျာသည် တနင်္သာရီတိုင်းဒေသကြီး၊ သရက်ချောင်းမြို့နယ် မဲနယ်အိုး ကျေးရွာနေ မယ်တော်ကြီး ဒေါ်သန်းအေး မိသားစုတို့၏ ပစ္စယာနုဂ္ဂဟကိုခံယူကာ ကျေးဇူးတော်ရှင် (ခမည်းတော်) ဆရာတော်ဘုရားကြီးကို ဥပဇ္ဈာယ်ပြုလျှက်
-                        </p>
-                    </div>
-                    <div class="bg-slate-900/80 p-3 rounded-lg border border-amber-500/20 text-center text-amber-400 font-semibold text-sm">
-                        🗓️ ၁၃၅၉-ခုနှစ် တွင် ရှင်သာမဏေအဖြစ်သို့ ရောက်ရှိခဲ့ပါသည်။
-                    </div>
-                </div>
-
-                <!-- Bhikkhu Card -->
-                <div class="kanote-card rounded-2xl p-6 sm:p-8 relative flex flex-col justify-between" data-aos="fade-left" data-aos-delay="200">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="p-3 bg-red-950/60 border border-amber-500/30 rounded-xl text-amber-400 text-xl">
-                                <i class="fa-solid fa-dharmachakra"></i>
-                            </span>
-                            <h4 class="text-xl sm:text-2xl font-bold text-amber-300">ရဟန်းအဖြစ်သို့ ရောက်ရှိခြင်း</h4>
-                        </div>
-                        <p class="text-gray-200 text-sm sm:text-base leading-relaxed mb-4">
-                            တနင်္သာရီတိုင်းဒေသကြီး၊ ထားဝယ်မြို့နယ်၊ ကူးတို့ရွာ၊ လင်းလွန်းပင်တောရကျောင်း၏ ဦးစီးပဓာန နာယက (ခမည်းတော်) ဆရာတော်ဘုရားကြီးအား ဥပဇ္ဈာယ်ပြုကာ မယ်တော်ကြီး ဒေါ်သန်းအေး မိသားစု၏ ပစ္စယာနုဂ္ဂဟကိုခံယူ၍ မြင့်မြတ်သော ရဟန်းအဖြစ်သို့ ရောက်ရှိတော်မူခဲ့ပါသည်။
-                        </p>
-                    </div>
-                    <div class="bg-slate-900/80 p-3 rounded-lg border border-amber-500/20 text-center text-amber-400 font-semibold text-sm">
-                        🗓️ ၁၃၆၈ ခုနှစ်၊ ကဆုန်လဆန်း (၁၃) ရက်၊ အင်္ဂါနေ့
-                    </div>
-                </div>
+            
+            <div class="p-4 bg-brown-900/80 rounded-xl border border-gold-500/30">
+                <h4 class="font-bold text-gold-400 mb-2">ယခုအခါ ဆောင်ရွက်လျက်ရှိသော သာသနာပြုလုပ်ငန်းများ</h4>
+                <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                    ယခုအခါ၌ ဆရာတော်သည် တနင်္သာရီတိုင်းဒေသကြီး၊ ထားဝယ်မြို့နယ်၊ လင်းလွန်းပင်တော ရကျောင်း၌ တပည့်ရဟန်းသာမဏေများကို ပရိယတ္တိစာပေးများ သင်ကြားပို့ချခြင်း၊ ထားဝယ်ဗုဒ္ဓ တက္ကသိုလ်၌ တက္ကသိုလ်ဘာသာရပ်များ သင်ကြားခြင်း၊ ဒကာ, ဒကာမ အပေါင်းတို့အား တရားဓမ္မများ ဟောဖော်ညွှန်ပြ ဆိုဆုံးမခြင်း၊ မိုးကုတ်တရားစခန်းများ၌ တရားပြသပေးခြင်း၊ ပရဟိတလုပ်ငန်းများ လုပ်ဆောင်ခြင်း အစရှိသော သာသနာပြု လုပ်ငန်းများကို ဆောင်ရွက်တော်မူကာ သီတင်းသုံး နေထိုင် တော်မူလျှက်ရှိပါသည်။
+                </p>
             </div>
         </section>
 
-        <!-- Section Divider -->
-        <div class="section-divider">
-            <span class="section-divider-icon">❖</span>
-        </div>
-
-        <!-- 3. Education Section -->
-        <section id="education" class="scroll-mt-28" data-aos="fade-up">
-            <div class="kanote-card rounded-2xl p-6 sm:p-10">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 text-2xl">
-                        <i class="fa-solid fa-book-open-reader"></i>
-                    </div>
+        <!-- ဆက်သွယ်လှူဒါန်းရန် -->
+        <section id="contact" class="kanote-card rounded-2xl p-6 sm:p-8 shadow-xl" data-aos="fade-up">
+            <h3 class="text-xl font-bold text-gold-400 mb-6 flex items-center border-b border-gold-500/20 pb-2">
+                <i data-lucide="phone-call" class="mr-3 w-6 h-6 text-gold-500"></i>
+                ဆက်သွယ်လှူဒါန်းရန်
+            </h3>
+            
+            <div class="space-y-4 text-slate-200">
+                <div class="flex items-start">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-gold-500 mr-3 mt-1 flex-shrink-0"></i>
                     <div>
-                        <h3 class="text-2xl sm:text-3xl font-bold gold-gradient-text">ပရိယတ္တိစာပေ သင်ကြားလေ့လာတော်မူခြင်း</h3>
-                        <p class="text-xs sm:text-sm text-amber-200/70">စာပေသင်ယူဆည်းပူးခဲ့သော စာသင်တိုက်များနှင့် တက္ကသိုလ်များ</p>
+                        <span class="font-bold text-gold-400">နေရပ်:</span>
+                        <p>လင်းလွန်းပင်ကျောင်း၊ ကူးတို့ရွာ၊ ထားဝယ်မြို့နယ်</p>
                     </div>
                 </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div class="p-4 rounded-xl bg-slate-900/60 border border-amber-500/20 flex items-start gap-3 hover:border-amber-400/50 transition">
-                        <span class="text-amber-400 mt-1"><i class="fa-solid fa-gopuram"></i></span>
-                        <span class="text-gray-200 text-base">ထားဝယ်မြို့ ဇေယျဝတီစာသင်တိုက်</span>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-slate-900/60 border border-amber-500/20 flex items-start gap-3 hover:border-amber-400/50 transition">
-                        <span class="text-amber-400 mt-1"><i class="fa-solid fa-gopuram"></i></span>
-                        <span class="text-gray-200 text-base">မော်လမြိုင် ဆင်ဖြူစာသင်တိုက်</span>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-slate-900/60 border border-amber-500/20 flex items-start gap-3 hover:border-amber-400/50 transition">
-                        <span class="text-amber-400 mt-1"><i class="fa-solid fa-university"></i></span>
-                        <span class="text-gray-200 text-base">ထားဝယ်မြို့ မြို့မသာသနာရိပ်သာ ထားဝယ်ဗုဒ္ဓတက္ကသိုလ်</span>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-slate-900/60 border border-amber-500/20 flex items-start gap-3 hover:border-amber-400/50 transition">
-                        <span class="text-amber-400 mt-1"><i class="fa-solid fa-graduation-cap"></i></span>
-                        <span class="text-gray-200 text-base">ရန်ကုန်မြို့ အဘိဓမ္မတက္ကသိုလ်</span>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-slate-900/60 border border-amber-500/20 flex items-start gap-3 hover:border-amber-400/50 transition sm:col-span-2 lg:col-span-1">
-                        <span class="text-amber-400 mt-1"><i class="fa-solid fa-earth-asia"></i></span>
-                        <span class="text-gray-200 text-base">သီရိလင်္ကာနိုင်ငံ ကေလနိယတက္ကသိုလ်</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. Degrees and Examinations Section -->
-        <section id="degrees" class="scroll-mt-28" data-aos="fade-up">
-            <div class="kanote-card rounded-2xl p-6 sm:p-10">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 text-2xl">
-                        <i class="fa-solid fa-award"></i>
-                    </div>
+                
+                <div class="flex items-start">
+                    <i data-lucide="phone" class="w-5 h-5 text-gold-500 mr-3 mt-1 flex-shrink-0"></i>
                     <div>
-                        <h3 class="text-2xl sm:text-3xl font-bold gold-gradient-text">အောင်မြင်တော်မူခဲ့သော စာမေးပွဲများနှင့် ဘွဲ့တံဆိပ်တော်များ</h3>
-                        <p class="text-xs sm:text-sm text-amber-200/70">သာသနာရေး စာမေးပွဲများနှင့် ရရှိခဲ့သော ဘွဲ့ဒီဂရီများ</p>
+                        <span class="font-bold text-gold-400">ဖုန်းနံပါတ်:</span>
+                        <p>09773331085, 09401544389</p>
                     </div>
                 </div>
 
-                <div class="flex flex-wrap gap-3">
-                    <span class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-950/80 to-slate-900 border border-amber-500/40 text-amber-200 text-sm sm:text-base font-medium flex items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-scroll text-amber-400"></i> အငယ်, အလတ်, အကြီး ပထမပြန် စာမေးပွဲများ
-                    </span>
-                    <span class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-950/80 to-slate-900 border border-amber-500/40 text-amber-200 text-sm sm:text-base font-medium flex items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-certificate text-amber-400"></i> ဒီပလိုမာ
-                    </span>
-                    <span class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-950/80 to-slate-900 border border-amber-500/40 text-amber-200 text-sm sm:text-base font-medium flex items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-ribbon text-amber-400"></i> အဘိဓမ္မဓရ
-                    </span>
-                    <span class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-950/80 to-slate-900 border border-amber-500/40 text-amber-200 text-sm sm:text-base font-medium flex items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-user-graduate text-amber-400"></i> B.A (အဘိဓမ္မဆေက)
-                    </span>
-                    <span class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-950/80 to-slate-900 border border-amber-500/40 text-amber-200 text-sm sm:text-base font-medium flex items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-user-graduate text-amber-400"></i> B.A (Buddhism)
-                    </span>
-                    <span class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-950/80 to-slate-900 border border-amber-500/40 text-amber-200 text-sm sm:text-base font-medium flex items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-graduation-cap text-amber-400"></i> M.A (မဟာအဘိဓမ္မဆေက)
-                    </span>
-                    <span class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-950/80 to-slate-900 border border-amber-500/40 text-amber-200 text-sm sm:text-base font-medium flex items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-graduation-cap text-amber-400"></i> MA (မဟာဝိဇ္ဇာ - သီရိလင်္ကာ)
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="section-divider">
-            <span class="section-divider-icon">❖</span>
-        </div>
-
-        <!-- 5. Religious & Social Activities Section -->
-        <section id="activities" class="scroll-mt-28 space-y-8" data-aos="fade-up">
-            <div class="kanote-card rounded-2xl p-6 sm:p-10">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 text-2xl">
-                        <i class="fa-solid fa-hand-holding-heart"></i>
-                    </div>
+                <div class="flex items-start">
+                    <i data-lucide="wallet" class="w-5 h-5 text-gold-500 mr-3 mt-1 flex-shrink-0"></i>
                     <div>
-                        <h3 class="text-2xl sm:text-3xl font-bold gold-gradient-text">ဘာသာရေး၊ သာသနာရေးနှင့် လူမှုရေးလုပ်ငန်းများ</h3>
-                        <p class="text-xs sm:text-sm text-amber-200/70">အားကြိုးမာန်တက် ဆောင်ရွက်ခဲ့သော သာသနာပြု လုပ်ငန်းများ</p>
+                        <span class="font-bold text-gold-400">Kpay:</span>
+                        <p>09773331085</p>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-amber-500/20 flex items-start gap-3">
-                        <span class="text-amber-400 text-lg mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="text-gray-200 text-base">ပရိယတ္တိစာပေများ, တက္ကသိုလ်ပညာများ သင်ကြားပို့ချခြင်း</span>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-amber-500/20 flex items-start gap-3">
-                        <span class="text-amber-400 text-lg mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="text-gray-200 text-base">မိုးကုတ်တရားတော်များ ဟောကြားပြသခြင်း</span>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-amber-500/20 flex items-start gap-3">
-                        <span class="text-amber-400 text-lg mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="text-gray-200 text-base">နေ့, ညတရားပွဲများ ဟောဖော်ညွှန်ပြ သွန်သင်ဆုံးမခြင်း</span>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-amber-500/20 flex items-start gap-3">
-                        <span class="text-amber-400 text-lg mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="text-gray-200 text-base">ဓမ္မစကူးလ်, ယဉ်ကျေးလိမ္မာ သင်တန်းများ သင်ကြား ပို့ချခြင်း</span>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-amber-500/20 flex items-start gap-3">
-                        <span class="text-amber-400 text-lg mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="text-gray-200 text-base">စေတီ၊ ရုပ်ပွားတော်များ အသစ်တည်ထားကိုးကွယ်ခြင်း၊ ပြုပြင်မွမ်းမံ ထိန်းသိမ်းခြင်း</span>
-                    </div>
-
-                    <div class="p-4 rounded-xl bg-slate-900/50 border border-amber-500/20 flex items-start gap-3">
-                        <span class="text-amber-400 text-lg mt-0.5"><i class="fa-solid fa-circle-check"></i></span>
-                        <span class="text-gray-200 text-base">ကျောင်းဆောင် အသစ်တည်ဆောက်ခြင်း၊ အဟောင်းပြုပြင်ခြင်း</span>
-                    </div>
-                </div>
-
-                <!-- Current Activities Box -->
-                <div class="mt-8 p-6 rounded-2xl bg-gradient-to-br from-amber-950/60 to-slate-900 border border-amber-400/40 relative">
-                    <h4 class="text-xl font-bold text-amber-300 mb-3 flex items-center gap-2">
-                        <span>☸️</span> ယခုအခါ၌ သာသနာပြု သီတင်းသုံးနေထိုင်တော်မူခြင်း
-                    </h4>
-                    <p class="text-gray-200 text-base leading-relaxed">
-                        ယခုအခါ၌ ဆရာတော်သည် တနင်္သာရီတိုင်းဒေသကြီး၊ ထားဝယ်မြို့နယ်၊ လင်းလွန်းပင်တောရကျောင်း၌ တပည့်ရဟန်းသာမဏေများကို ပရိယတ္တိစာပေးများ သင်ကြားပို့ချခြင်း၊ ထားဝယ်ဗုဒ္ဓတက္ကသိုလ်၌ တက္ကသိုလ်ဘာသာရပ်များ သင်ကြားခြင်း၊ ဒကာ, ဒကာမ အပေါင်းတို့အား တရားဓမ္မများ ဟောဖော်ညွှန်ပြ ဆိုဆုံးမခြင်း၊ မိုးကုတ်တရားစခန်းများ၌ တရားပြသပေးခြင်း၊ ပရဟိတလုပ်ငန်းများ လုပ်ဆောင်ခြင်း အစရှိသော သာသနာပြု လုပ်ငန်းများကို ဆောင်ရွက်တော်မူကာ သီတင်းသုံး နေထိုင်တော်မူလျှက်ရှိပါသည်။
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. Contact & Donation Section -->
-        <section id="contact" class="scroll-mt-28" data-aos="fade-up">
-            <div class="kanote-card rounded-2xl p-6 sm:p-10 border-2 border-amber-500/50">
-                <div class="text-center mb-8">
-                    <span class="text-3xl">🙏</span>
-                    <h3 class="text-2xl sm:text-4xl font-bold gold-gradient-text mt-2">ဆက်သွယ်လှူဒါန်းရန်</h3>
-                    <p class="text-amber-200/70 text-sm mt-1">သာသနာပြု လုပ်ငန်းများတွင် ပါဝင်ကုသိုလ်ယူနိုင်ပါသည်</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <!-- Location & Phone Card -->
-                    <div class="space-y-4">
-                        <div class="p-4 rounded-xl bg-slate-900/70 border border-amber-500/20 flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-400 text-xl shrink-0">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-amber-300/80 uppercase font-semibold">နေရပ်</div>
-                                <div class="text-gray-100 font-medium text-base">လင်းလွန်းပင်ကျောင်း၊ ကူးတို့ရွာ၊ ထားဝယ်မြို့နယ်</div>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-xl bg-slate-900/70 border border-amber-500/20 flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-400 text-xl shrink-0">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-amber-300/80 uppercase font-semibold">ဖုန်းနံပါတ်</div>
-                                <div class="text-gray-100 font-medium text-base">
-                                    <a href="tel:09773331085" class="hover:text-amber-300 transition">09773331085</a>, 
-                                    <a href="tel:09401544389" class="hover:text-amber-300 transition">09401544389</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-xl bg-slate-900/70 border border-amber-500/20 flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-blue-600/30 border border-blue-400/40 flex items-center justify-center text-blue-400 text-xl shrink-0">
-                                <i class="fa-solid fa-wallet"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-amber-300/80 uppercase font-semibold">KPay ဖုန်းနံပါတ်</div>
-                                <div class="text-gray-100 font-medium text-base">09773331085</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Social Media Links -->
-                    <div class="space-y-4">
-                        <a href="#" target="_blank" class="p-4 rounded-xl bg-slate-900/70 border border-amber-500/20 flex items-center gap-4 hover:border-amber-400 transition group">
-                            <div class="w-12 h-12 rounded-lg bg-blue-600/20 flex items-center justify-center text-blue-400 text-2xl group-hover:scale-110 transition shrink-0">
-                                <i class="fa-brands fa-facebook"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-xs text-amber-300/80 uppercase font-semibold">Facebook</div>
-                                <div class="text-gray-100 font-medium text-base">ဘုန်း ထားဝယ်</div>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-gray-500 group-hover:text-amber-400 transition"></i>
-                        </a>
-
-                        <a href="#" target="_blank" class="p-4 rounded-xl bg-slate-900/70 border border-amber-500/20 flex items-center gap-4 hover:border-amber-400 transition group">
-                            <div class="w-12 h-12 rounded-lg bg-pink-600/20 flex items-center justify-center text-pink-400 text-2xl group-hover:scale-110 transition shrink-0">
-                                <i class="fa-brands fa-tiktok"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-xs text-amber-300/80 uppercase font-semibold">Tiktok</div>
-                                <div class="text-gray-100 font-medium text-base">ဘုန်းထားဝယ်</div>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-gray-500 group-hover:text-amber-400 transition"></i>
-                        </a>
-
-                        <a href="#" target="_blank" class="p-4 rounded-xl bg-slate-900/70 border border-amber-500/20 flex items-center gap-4 hover:border-amber-400 transition group">
-                            <div class="w-12 h-12 rounded-lg bg-red-600/20 flex items-center justify-center text-red-500 text-2xl group-hover:scale-110 transition shrink-0">
-                                <i class="fa-brands fa-youtube"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-xs text-amber-300/80 uppercase font-semibold">Youtube</div>
-                                <div class="text-gray-100 font-medium text-base">ဘုန်းထားဝယ်</div>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-gray-500 group-hover:text-amber-400 transition"></i>
-                        </a>
-                    </div>
+                <!-- Social Links Buttons -->
+                <div class="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <a href="https://www.facebook.com/share/1LAERr9456/?mibextid=wwXIfr" target="_blank" class="flex items-center justify-center space-x-2 p-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@sujanaven?_r=1&_t=ZS-99CxPY38kC2" target="_blank" class="flex items-center justify-center space-x-2 p-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-semibold transition-colors">
+                        <i data-lucide="video" class="w-5 h-5"></i>
+                        <span>TikTok</span>
+                    </a>
+                    <a href="https://youtube.com/channel/UC_oziz4Lwssaf0RGIJmGcfg?si=YqY6xwQw_VaFj_QV" target="_blank" class="flex items-center justify-center space-x-2 p-3 rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold transition-colors">
+                        <i data-lucide="youtube" class="w-5 h-5"></i>
+                        <span>YouTube</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -525,46 +360,34 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-amber-500/30 py-8 text-center text-sm text-gray-400">
-        <div class="max-w-6xl mx-auto px-4 space-y-2">
-            <p class="gold-gradient-text font-semibold text-base">လင်းလွန်းပင်ကျောင်းဆရာတော် (ဘုန်းထားဝယ်) ဘဒ္ဒန္တသုဇန</p>
-            <p>© 2026 Sayadaw Profile Landing Page. All rights reserved.</p>
-        </div>
+    <footer class="border-t border-gold-500/20 bg-maroon-900/80 py-6 text-center text-sm text-slate-400">
+        <p>သာသနံ စိရံ တိဋ္ဌတု - သာသနာတော်မြတ်ကြီး အရှည်တည်တံ့ပါစေ။</p>
     </footer>
 
-    <!-- AOS Script Initialization -->
+    <!-- AOS & Lucide Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize AOS animations
         AOS.init({
-            duration: 900,
+            duration: 800,
             once: true,
-            offset: 50
         });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
 
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
 
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            if (mobileMenu.classList.contains('hidden')) {
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
-            } else {
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-xmark');
-            }
         });
-
-        // Close Mobile Menu on Link Click
-        mobileLinks.forEach(link => {
+        
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
             });
         });
     </script>
